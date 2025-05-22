@@ -1,0 +1,278 @@
+<!-- GW TAU BANG LU MAU AMBIL CODE GW-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jalan Desa - Komunitas Discord</title>
+  <link rel="icon" href="https://files.catbox.moe/ltnmhd.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg-color: #0f2027;
+      --text-color: white;
+      --card-bg: rgba(255,255,255,0.05);
+      --button-bg: #7289da;
+    }
+    body.light {
+      --bg-color: #f2f2f2;
+      --text-color: #111;
+      --card-bg: #fff;
+      --button-bg: #5865f2;
+    }
+
+    * {
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav {
+      background: var(--bg-color);
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .nav-title {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    .burger, .toggle-btn {
+      font-size: 18px;
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .burger:hover, .toggle-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 0 20px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .menu a {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-color);
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .menu a:hover {
+      background: var(--button-bg);
+      color: white;
+      transform: scale(1.06);
+    }
+
+    header {
+      padding: 80px 20px 40px;
+      text-align: center;
+      animation: slideDown 0.7s ease;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      opacity: 0.85;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .feature {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 15px;
+      width: 260px;
+      text-align: center;
+      animation: fadeInUp 1s ease;
+      transition: 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      background: rgba(0,0,0,0.05);
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      background: var(--button-bg);
+      color: white;
+      padding: 10px 14px;
+      font-size: 20px;
+      border-radius: 50%;
+      border: none;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: opacity 0.3s;
+    }
+
+    #backToTop:hover {
+      background: white;
+      color: var(--button-bg);
+    }
+
+    @media (min-width: 600px) {
+      .menu {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .burger {
+        display: none;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes slideDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+<!-- 
+  Made with love by Hazel
+     TikTok: https://tiktok.com/@stc_fay
+     Instagram: @stc_ryzzz
+     Email: hazelnuttty@gmail.com
+  Thanks to all <3
+-->  
+</head>
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+<body>
+  <nav>
+    <div class="nav-title">Jalan Desa</div>
+    <div style="display: flex; align-items: center;">
+      <button class="burger" onclick="toggleMenu()">☰</button>
+      <button class="toggle-btn" onclick="toggleMode()">Tema</button>
+    </div>
+  </nav>
+
+  <div class="menu" id="menu">
+     <a href="https://discord.gg/rEhYZhnkV2" target="_blank">Gabung Discord</a>
+     <a href="https://discord.com/oauth2/authorize?client_id=1350453522163826790&scope=bot%20applications.commands&permissions=0" target="_blank">Bot Server</a>
+     <a href="https://elainacloud.vercel.app/" target="_blank">Elaina.Cloud</a>
+     <a href="https://wa.me/+6285183131924">Hubungi Admin</a>
+  </div>
+
+  <header>
+    <h1>Jalan Desa</h1>
+    <p>Tempat nyaman buat ngobrol, curhat, dan ketawa bareng~</p>
+  </header>
+
+  <section>
+    <h2 style="text-align:center;">Kenapa Gabung?</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Komunitas Nyantai</h3>
+        <p>Santai, ramah, dan cocok buat semua umur</p>
+      </div>
+      <div class="feature">
+        <h3>Bot Unik</h3>
+        <p>Dari musik, AI, sampai game, semua ada!</p>
+      </div>
+      <div class="feature">
+        <h3>Pelayanan</h3>
+        <p>Kami akan melayani anda 24/7jam. Tanpa batasan jam kerja</p>
+      </div>
+      <div class="feature">
+        <h3>Team</h3>
+        <p>Jalan desa memiliki banyak staff dan team yang ahli</p>
+      </div>
+      <div class="feature">
+        <h3>Event & Giveaway</h3>
+        <p>Rutin ngadain event kecil sampai besar!</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <footer>
+    <p>&copy; 2025 Jalan Desa. All rights reserved.</p>
+  </footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    scrollToTop();
+  }
+
+  function toggleMode() {
+    document.body.classList.toggle('light');
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  const backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.style.display = 'block';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
