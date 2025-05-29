@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jalan Desa - Komunitas Discord</title>
+  <title>Jalan Desa Cloud Server</title>
   <link rel="icon" href="https://files.catbox.moe/ltnmhd.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
@@ -210,7 +210,7 @@
   <div class="menu" id="menu">
      <a href="https://discord.gg/rEhYZhnkV2" target="_blank">Gabung Discord</a>
      <a href="https://discord.com/oauth2/authorize?client_id=1350453522163826790&scope=bot%20applications.commands&permissions=0" target="_blank">Bot Server</a>
-     <a href="https://elainacloud.vercel.app/" target="_blank">Elaina.Cloud</a>
+     <a href="https://elainacloud.vercel.app/" target="_blank">Customer Service</a>
      <a href="https://wa.me/+6285183131924">Hubungi Admin</a>
   </div>
 
@@ -242,14 +242,38 @@
         <h3>Event & Giveaway</h3>
         <p>Rutin ngadain event kecil sampai besar!</p>
       </div>
-    </div>
+<div class="feature">
+  <h3>Runtime Bot</h3>
+  <p id="runtime-timer">Runtime: 0 detik</p>        
+</div>
   </section>
   
-
   <footer>
     <p>&copy; 2025 Jalan Desa. All rights reserved.</p>
   </footer>
+<script>
+  // waktu deploy hardcoded (dalam UTC)
+  const deployTime = new Date("2025-05-29T03:00:00Z"); // WIB = UTC+7
 
+  function updateRuntime() {
+    const now = new Date();
+    const diff = Math.floor((now - deployTime) / 1000);
+
+    const hours = Math.floor(diff / 3600);
+    const minutes = Math.floor((diff % 3600) / 60);
+    const seconds = diff % 60;
+
+    const formatted = 
+      (hours > 0 ? hours + " jam " : "") +
+      (minutes > 0 ? minutes + " menit " : "") +
+      seconds + " detik";
+
+    document.getElementById("runtime-timer").textContent = "" + formatted;
+  }
+
+  setInterval(updateRuntime, 1000);
+  updateRuntime();
+</script>
 <script>
   function toggleMenu() {
     const menu = document.getElementById('menu');
